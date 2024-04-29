@@ -1,11 +1,9 @@
 using UnityEngine;
 
-public class LeftRightMovement : MonoBehaviour
+public class Ð¡rawlerEnemyAI : MonoBehaviour
 {
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private float _movementSpeed;
-
-    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private int _currentWaypoint = 0;
 
@@ -20,10 +18,9 @@ public class LeftRightMovement : MonoBehaviour
 
     private void Update()
     {
-        if(Vector2.Distance(transform.position, _waypoints[_currentWaypoint].position) <= 1)
+        if (Vector2.Distance(transform.position, _waypoints[_currentWaypoint].position) <= 1)
         {
-            //Debug.Log("Óñëîâèå ÂÛÏÎËÍßÅÒÅÒÅÒÅÒÅÒÅÒÅÒÒÅÒÅÒÅÅÒ");
-            if (_currentWaypoint == _waypoints.Length -1)
+            if (_currentWaypoint == _waypoints.Length - 1)
             {
                 _currentWaypoint = 0;
             }
@@ -34,19 +31,5 @@ public class LeftRightMovement : MonoBehaviour
         }
 
         transform.position = Vector2.MoveTowards(transform.position, _waypoints[_currentWaypoint].position, _movementSpeed * Time.deltaTime);
-
-        Flip();
-    }
-
-    private void Flip()
-    {
-        if (_waypoints[_currentWaypoint].position.x > transform.position.x)
-        {
-            _spriteRenderer.flipX = false;
-        }
-        else
-        {
-            _spriteRenderer.flipX = true;
-        }
     }
 }
