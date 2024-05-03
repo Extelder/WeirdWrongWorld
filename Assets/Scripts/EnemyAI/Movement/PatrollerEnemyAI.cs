@@ -9,12 +9,10 @@ public class PatrollerEnemyAI : MonoBehaviour
 
     private int _currentWaypoint = 0;
 
-    private Rigidbody2D _rigidbody;
     private Animator _animator;
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
 
